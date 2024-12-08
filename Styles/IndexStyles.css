@@ -10,75 +10,75 @@
 
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
     }
     body {
         margin: 0;
     }
-    /*__________________________________________________________________________*/
-    header {
-        margin: 0;
-        background-image: url("../images/BCKG.png");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-    }
-    h1 {
-        margin: 0;
-        padding-top: 13rem;
-        position: relative;
-        text-align: center;
-        font-size: 5.938rem;
-        font-family: var(--font-A), serif;
-        font-weight: 300;
-        color: white;
-        opacity: 0.7;
-    }
-    .hotel-text {
-        display: block;
-        margin-top: -1.3rem;
-        position: relative;
-        text-align: center;
-        font-size: 5rem;
-        font-family: var(--font-A), serif;
-        font-weight: 300;
-        color: white;
-        opacity: 0.9;
-    }
-    header h2 {
-        margin-top: -1.4rem;
-        position: relative;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 300;
-        color: white;
-        opacity: 0.7;
-    }
-    .Logo {
-        position: fixed;
-        top: 0;
-        padding: 0;
-        margin: 0;
-    }
-    .Logo img {
-        margin-top: -2px;
-        margin-left: 25px;
-        width: 100px;
-        height: auto;
-        display: block;
-    }
+/*__________________________________________________________________________*/
+header {
+    margin: 0;
+    background-image: url("../images/BCKG.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+h1 {
+    margin: 0;
+    padding-top: 13rem;
+    position: relative;
+    text-align: center;
+    font-size: 5.938rem;
+    font-family: var(--font-A), serif;
+    font-weight: 300;
+    color: white;
+    opacity: 0.7;
+}
+.hotel-text {
+    display: block;
+    margin-top: -1.3rem;
+    position: relative;
+    text-align: center;
+    font-size: 5rem;
+    font-family: var(--font-A), serif;
+    font-weight: 300;
+    color: white;
+    opacity: 0.9;
+}
+header h2 {
+    margin-top: -1.4rem;
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    opacity: 0.7;
+}
+.Logo {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+.Logo img {
+    margin-left: 25px;
+    width: 100px;
+    height: auto;
+    display: block;
+}
 
-    .CatCloud{
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-    }
-    .CatCloud img {
-        padding: 0;
-        margin-top: 10rem;
+.CatCloud{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.CatCloud img {
+    padding: 0;
+    margin-top: 10rem;
     position: relative;
     left: 50%;
     width: 500px;
@@ -86,25 +86,27 @@
     display: block;
     animation: float 5s infinite ease-in-out;
 }
-
 /*__________________________________________________________________________*/
-nav.navbar{
+nav#navbar{
     position: fixed;
     top: 0;
     width: 100%;
-    height: 3rem;
+    height: 4rem;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    z-index: 4;
 }
-nav.navbar ul.nav-links {
+nav#navbar ul.nav-links {
     list-style: none;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-bottom: 0;
     padding-left: 0;
     text-align: center;
 }
-nav.navbar ul.nav-links li {
+nav#navbar ul.nav-links li {
     display: inline-block;
 }
-nav.navbar ul.nav-links li a {
+nav#navbar ul.nav-links li a {
     font-family: var(--font-B), serif;
     text-decoration: none;
     opacity: 0.8;
@@ -138,7 +140,7 @@ nav.navbar ul.nav-links li a:focus {
 }
 .login-btn {
     position: absolute;
-    top: 7px;
+    top: 12px;
     right: 20px;
     padding: 10px 25px;
     background-color: var(--color-D);
@@ -159,7 +161,7 @@ nav.navbar ul.nav-links li a:focus {
 }
 .reservation-btn {
     position: absolute;
-    z-index: 10;
+    z-index: 2;
     margin-top: 16rem;
     margin-left: -4rem;
     padding: 10px 25px;
@@ -271,7 +273,7 @@ footer{
         font-size: 1.3rem;
     }
     .CatCloud img {
-        padding-top: 2rem;
+        margin-top: 9rem;
         width: 400px;
     }
     #About h2 {
@@ -312,6 +314,10 @@ footer{
         padding: 5px 15px;
         font-size: 12px;
     }
+    .reservation-btn {
+        margin-top: 18rem;
+        margin-left: -4.5rem;
+    }
 }
 
 @media screen and (min-width: 1450px){
@@ -342,7 +348,7 @@ footer{
     }
 }
 
-@media screen and (min-width: 530px) and (max-width: 850px){
+@media screen and (min-width: 460px) and (max-width: 700px){
     .contact-link{
         font-size: 1.2rem;
         margin-right: 1.5rem;
