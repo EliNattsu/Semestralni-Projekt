@@ -1,0 +1,85 @@
+:root {
+    --color-A: #1B51F2;
+    --color-B: #2E83F2;
+    --color-C: #80B2F2;
+    --color-D: #CEDEF2;
+    --color-E: #F28B30;
+    --font-A: "Stoic-Regular", serif;
+    --font-B: "Sunborn-SansOne";
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+}
+/*__________________________________________________________________________*/
+
+main {
+    margin: 0;
+    background-image: url("../images/LoginBCK.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Logo {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+.Logo img {
+    margin-top: -2px;
+    margin-left: 25px;
+    width: 100px;
+    height: auto;
+    display: block;
+}
+/*__________________________________________________________________________*/
+nav.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+}
+nav.navbar ul.nav-links {
+    list-style: none;
+    margin-top: 3px;
+    margin-bottom: 0;
+    padding-left: 0;
+    text-align: center;
+}
+nav.navbar ul.nav-links li {
+    display: inline-block;
+}
+nav.navbar ul.nav-links li a {
+    font-size: 2rem;
+    font-family: var(--font-B), serif;
+    text-decoration: none;
+    opacity: 0.9;
+}
+.about-link {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    color: white;
+}
+.pricing-link{
+    margin-right: 5rem;
+    margin-left: 5rem;
+    color: white;
+}
+.contact-link{
+    margin-right: 1rem;
+    margin-left: 5rem;
+    color: white;
+}
+
+nav.navbar ul.nav-links li a:hover,
+nav.navbar ul.nav-links li a:focus {
+    color: white;
+    text-decoration: underline;
+}
