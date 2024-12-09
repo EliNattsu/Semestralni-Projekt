@@ -7,14 +7,13 @@
     --font-A: "Stoic-Regular", serif;
     --font-B: "Sunborn-SansOne";
 }
-
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 1rem;
-    }
-    body {
-        margin: 0;
-    }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+}
+body {
+    margin: 0;
+}
 /*__________________________________________________________________________*/
 header {
     margin: 0;
@@ -127,7 +126,6 @@ nav#navbar ul.nav-links li a {
     margin-right: 5rem;
     margin-left: 5rem;
 }
-
 nav.navbar ul.nav-links li a:hover,
 nav.navbar ul.nav-links li a:focus {
     color: white;
@@ -177,7 +175,6 @@ nav.navbar ul.nav-links li a:focus {
     background-color: var(--color-A);
     transform: translateY(-2px);
 }
-
 /*__________________________________________________________________________*/
 #About.About{
     background: linear-gradient(to bottom, #ffffff, #2f80fa);
@@ -200,7 +197,6 @@ nav.navbar ul.nav-links li a:focus {
     font-family: Arial, serif;
     font-size: 1rem;
 }
-
 #Pricing.Pricing{
     background: linear-gradient(to bottom, #2f80fa, #000aff);
     min-height: 500px;
@@ -215,7 +211,6 @@ nav.navbar ul.nav-links li a:focus {
     text-align: center;
     font-size: 4rem;
 }
-
 #Contact.Contact{
     background: linear-gradient(to bottom, #000aff, #2f80fa, white);
     min-height: 500px;
@@ -319,7 +314,6 @@ footer{
         margin-left: -4.5rem;
     }
 }
-
 @media screen and (min-width: 1450px){
     h1{
         padding-top: 15rem;
@@ -347,7 +341,6 @@ footer{
         margin-left: 7rem;
     }
 }
-
 @media screen and (min-width: 460px) and (max-width: 700px){
     .contact-link{
         font-size: 1.2rem;
@@ -373,7 +366,6 @@ footer{
         width: 70px;
     }
 }
-
 @keyframes float {
     0%, 100% {
         transform: translate(-50%, -50%) translateY(0);
