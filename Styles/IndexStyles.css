@@ -9,7 +9,7 @@
 }
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 1rem;
+    scroll-padding-top: 5rem;
 }
 body {
     margin: 0;
@@ -132,6 +132,7 @@ nav.navbar ul.nav-links li a:focus {
     opacity: 1;
     text-decoration: underline;
 }
+/* Это дерьмо, блядь, не работает.*/
 /*__________________________________________________________________________*/
 .login-button-container {
     text-align: center;
@@ -178,7 +179,7 @@ nav.navbar ul.nav-links li a:focus {
 /*__________________________________________________________________________*/
 .About{
     background: linear-gradient(to bottom, #ffffff, #2f80fa);
-    min-height: 700px;
+    height: 500px;
     width: 100vw;
 }
 #About h2{
@@ -197,9 +198,10 @@ nav.navbar ul.nav-links li a:focus {
     line-height: 1.6;
     margin-bottom: 15px;
 }
+/*__________________________________________________________________________*/
 .Pricing{
     background: linear-gradient(to bottom, #2f80fa, #000aff);
-    min-height: 500px;
+    height: 900px;
     width: 100vw;
 }
 #Pricing h2{
@@ -210,9 +212,47 @@ nav.navbar ul.nav-links li a:focus {
     text-align: center;
     font-size: 4rem;
 }
+#Pricing h3{
+    text-align: center;
+    margin-top: 2rem ;
+    color: white;
+}
+#Pricing h4{
+    color: white;
+}
+#Pricing ul li{
+    color: white;
+    font-size: 1rem;
+    font-family: Arial, serif;
+}
+table.cenik, table.dalsi-sluzby {
+    width: 100vw;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #0015ff;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #dedede;
+}
+tr:nth-child(odd){
+    background-color: white;
+}
+tr:hover {
+    background-color: #ddd;
+}
+/*__________________________________________________________________________*/
 .Contact{
     background: linear-gradient(to bottom, #000aff, #2f80fa, white);
-    min-height: 500px;
+    height: 100vh;
     width: 100vw;
 }
 #Contact h2{
@@ -222,6 +262,17 @@ nav.navbar ul.nav-links li a:focus {
     font-weight: 300;
     text-align: center;
     font-size: 4rem;
+}
+#Contact h3{
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+.Contact p {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #dedede;
 }
 /* _________________________________________________________________________*/
 footer{
@@ -255,7 +306,7 @@ footer p {
     }
     .Logo img {
         width: 70px;
-        margin-left: 14px ;
+        margin-left: 14px;
     }
     h1 {
         font-size: 4.5rem;
@@ -283,18 +334,18 @@ footer p {
         font-size: 2rem;
     }
     .contact-link{
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin-right: 1.6rem;
         margin-left: 0.5rem;
     }
     .about-link{
-        font-size: 1rem;
-        margin-right: 1rem;
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
     .pricing-link{
-        font-size: 1rem;
-        margin-right: 1rem;
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
     .login-btn {
@@ -309,6 +360,12 @@ footer p {
     }
     footer p {
         font-size: 0.7rem;
+    }
+    .Pricing {
+        height: 1000px;
+    }
+    .About{
+        height: 600px;
     }
 }
 @media screen and (min-width: 1450px){
@@ -337,6 +394,9 @@ footer p {
         margin-right: 9rem;
         margin-left: 7rem;
     }
+    .login-btn{
+        top: 11px;
+    }
 }
 @media screen and (min-width: 460px) and (max-width: 700px){
     .contact-link{
@@ -363,7 +423,7 @@ footer p {
         width: 70px;
     }
 }
-@media screen and (min-width: 700px) and (max-width: 1450px){
+@media screen and (min-width: 700px) and (max-width: 1000px){
     .contact-link{
         margin-right: 1rem;
         margin-left: 1rem;
@@ -394,6 +454,75 @@ footer p {
     }
 }
 
+@media screen and (max-width: 330px){
+    .contact-link{
+        font-size: 1rem;
+        margin-right: 0;
+        margin-left: 0.2rem;
+    }
+    .about-link{
+        font-size: 1rem;
+        margin-right: 0.2rem;
+        margin-left: -0.5rem;
+    }
+    .pricing-link{
+        font-size: 1rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .Logo img{
+        width: 60px;
+        margin-left: 8px;
+    }
+    .login-btn {
+        top: 14px;
+        right: 5px;
+        padding: 2px 7px;
+        font-size: 11px;
+    }
+    nav#navbar{
+        height: 3rem;
+    }
+    .Pricing {
+        height: 1250px;
+    }
+    .About{
+        height: 680px;
+    }
+}
+@media screen and (min-width:350px) and (max-width: 400px){
+    .contact-link{
+        font-size: 1.1rem;
+        margin-right: 0;
+        margin-left: 0.2rem;
+    }
+    .about-link{
+        font-size: 1.1rem;
+        margin-right: 0.2rem;
+        margin-left: -0.9rem;
+    }
+    .pricing-link{
+        font-size: 1.1rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .Logo img{
+        width: 70px;
+        margin-left: 8px;
+    }
+    .login-btn {
+        top: 12px;
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 11px;
+    }
+    .Pricing {
+        height: 1100px;
+    }
+    .About{
+        height: 650px;
+    }
+}
 @keyframes float {
     0%, 100% {
         transform: translate(-50%, -50%) translateY(0);
