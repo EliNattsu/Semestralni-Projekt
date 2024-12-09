@@ -6,7 +6,6 @@
     --color-E: #F28B30;
     --font-A: "Stoic-Regular", serif;
     --font-B: "Sunborn-SansOne";
-    scroll-behavior: smooth;
 }
 body {
     margin: 0;
@@ -36,58 +35,53 @@ main {
     height: auto;
     display: block;
 }
-
 /* ____________________________________________________________________*/
-nav.navbar{
+nav#navbar{
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 5rem;
+    width: 100vw;
+    height: 4rem;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    z-index: 4;
 }
-nav.navbar ul.nav-links {
+nav#navbar ul.nav-links {
     list-style: none;
-    margin-top: 3px;
+    margin-top: 16px;
     margin-bottom: 0;
     padding-left: 0;
     text-align: center;
 }
-nav.navbar ul.nav-links li {
+nav#navbar ul.nav-links li {
     display: inline-block;
 }
-nav.navbar ul.nav-links li a {
-    font-size: 2rem;
+nav#navbar ul.nav-links li a {
     font-family: var(--font-B), serif;
     text-decoration: none;
-    opacity: 0.9;
+    opacity: 0.8;
+    color: white;
 }
 .about-link {
+    font-size: 2rem;
     margin-right: 5rem;
     margin-left: 5rem;
-    color: white;
 }
 .pricing-link{
+    font-size: 2rem;
     margin-right: 5rem;
     margin-left: 5rem;
-    color: white;
 }
 .contact-link{
-    margin-right: 1rem;
+    font-size: 2rem;
+    margin-right: 5rem;
     margin-left: 5rem;
-    color: white;
 }
-
 nav.navbar ul.nav-links li a:hover,
 nav.navbar ul.nav-links li a:focus {
     color: white;
+    opacity: 1;
     text-decoration: underline;
 }
-
-body{
-    margin: 0;
-    padding: 0;
-}
-
 /* ____________________________________________________________________*/
 .login-container {
     max-width: 450px;
@@ -101,7 +95,6 @@ body{
     top: 25%;
     left: 33%;
 }
-
 h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -109,7 +102,6 @@ h2 {
     color: white;
     opacity: 0.9;
 }
-
 label {
     display: block;
     margin-bottom: 5px;
@@ -117,7 +109,6 @@ label {
     opacity: 0.9;
     text-align: left;
 }
-
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -126,7 +117,6 @@ input[type="password"] {
     border: 1px solid white;
     border-radius: 10px;
 }
-
 button {
     background-color: var(--color-A);
     color: white;
@@ -139,18 +129,200 @@ button {
 button:hover {
     background-color: #4cae4c;
 }
-
 /* ____________________________________________________________________*/
-@media screen and (max-width: 450px) and (max-height: 800px){
+.login-button-container {
+    text-align: center;
+}
+.login-btn {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: var(--color-D);
+    border: 2px solid white;
+    opacity: 0.9;
+    color: var(--color-A);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.login-btn:hover {
+    background-color: var( --color-C);
+    transform: translateY(-2px);
+}
+/* ____________________________________________________________________*/
+.Footer {
+    position: relative;
+    text-align: center;
+    font-size: 1rem;
+    bottom: -53%;
+}
+.Footer p {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+/* ____________________________________________________________________*/
+@media screen and (max-width: 450px) {
     header {
         background-image: url("../images/LoginBCK-Small.png");
     }
     .Logo img {
         width: 70px;
+        margin-left: 14px;
     }
     .login-container {
-        max-width: 250px;
+        max-width: 300px;
         padding: 20px;
-        left: 2.5%;
+        left: 8%;
+    }
+    .contact-link{
+        font-size: 1.2rem;
+        margin-right: 1.6rem;
+        margin-left: 0.5rem;
+    }
+    .about-link{
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    .pricing-link{
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    .login-btn {
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 1450px){
+    .contact-link{
+        margin-right: 13rem;
+        margin-left: 10rem;
+    }
+    .about-link{
+        margin-right: 12rem;
+        margin-left: 10rem;
+    }
+    .pricing-link{
+        margin-right: 9rem;
+        margin-left: 7rem;
+    }
+    .login-btn{
+        top: 11px;
+    }
+}
+@media screen and (min-width: 460px) and (max-width: 700px){
+    .contact-link{
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    .about-link{
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        margin-left: 1rem;
+    }
+    .pricing-link{
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    .login-btn {
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+    .Logo img {
+        width: 70px;
+    }
+}
+@media screen and (min-width: 710px) and (max-width: 1100px) {
+    .contact-link {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .about-link {
+        margin-right: 1.5rem;
+        margin-left: 0;
+    }
+    .pricing-link {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    .login-container{
+        left: 26.5%;
+    }
+}
+@media screen and (min-width: 760px) and (max-width: 780px){
+    .login-container{
+        left: 19%;
+    }
+}
+@media screen and (max-width: 330px){
+    .contact-link{
+        font-size: 1rem;
+        margin-right: 0;
+        margin-left: 0.2rem;
+    }
+    .about-link{
+        font-size: 1rem;
+        margin-right: 0.2rem;
+        margin-left: -0.5rem;
+    }
+    .pricing-link{
+        font-size: 1rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .Logo img{
+        width: 60px;
+        margin-left: 8px;
+    }
+    .login-btn {
+        top: 14px;
+        right: 5px;
+        padding: 2px 7px;
+        font-size: 11px;
+    }
+    .login-container{
+        width: 250px;
+        left: 2%;
+    }
+}
+@media screen and (min-width:350px) and (max-width: 400px){
+    .contact-link{
+        font-size: 1.1rem;
+        margin-right: 0;
+        margin-left: 0.2rem;
+    }
+    .about-link{
+        font-size: 1.1rem;
+        margin-right: 0.2rem;
+        margin-left: -0.9rem;
+    }
+    .pricing-link{
+        font-size: 1.1rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .Logo img{
+        width: 70px;
+        margin-left: 8px;
+    }
+    .login-btn {
+        top: 12px;
+        right: 10px;
+        padding: 5px 15px;
+        font-size: 11px;
+    }
+    .login-container{
+        left: 3%;
     }
 }
