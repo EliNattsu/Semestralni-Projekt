@@ -19,25 +19,122 @@
 </head>
 <body>
 <header>
-    <nav class="navbar">
-        <div class="container"></div>
-
-        <a href="index.html" class="Logo">
-            <img src="images/Logo.png" alt="Logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html #About" class="about-link">O nás</a></li>
-            <li><a href=" index.html #Pricing" class="pricing-link">Ceník</a></li>
-            <li><a href="index.html #Contact" class="contact-link">Kontakt</a></li>
-        </ul>
+    <h1> CatParadise <br>
+        <span class="hotel-text">Hotel</span>
+    </h1>
+    <h2> Užijte si dovolenou s kočkou</h2>
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="Logo">
+                <img src="images/Logo.png" alt="Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#About" class="about-link">O nás</a></li>
+                <li><a href="index.html#Pricing" class="pricing-link">Ceník</a></li>
+                <li><a href="index.html#Contact" class="contact-link">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="login-button-container">
+            <a href="LogIn.html" class="login-btn"> Přihlásit se </a>
+        </div>
     </nav>
-</header>
-<main>
 
+    <script type="application/javascript">
+        window.onscroll = function() {
+            var navbar = document.getElementById("navbar");
+
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop < 50) {
+                navbar.style.backgroundColor = "transparent";
+                navbar.style.color = "white";
+            } else {
+                navbar.style.backgroundColor = "#2E83F2";
+                navbar.style.color = "white";
+            }
+        };
+    </script>
+
+    <div class="Reservation-button-container">
+        <a href="#Reservation" class="reservation-btn"> Rezervace </a>
+    </div>
+</header>
+
+<main>
+    <section id="Reservation" class="Reservation">
+        <div class="container">
+            <h2>Rezervace</h2>
+            <form action="/submit-reservation" method="POST" id="reservation-form">
+                <label for="name">Jméno a příjmení:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Telefonní číslo:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="arrival">Datum příjezdu:</label>
+                <input type="date" id="arrival" name="arrival" required>
+
+                <label for="departure">Datum odjezdu:</label>
+                <input type="date" id="departure" name="departure" required>
+
+                <label for="cats">Počet koček:</label>
+                <input type="number" id="cats" name="cats" min="1" max="3" required>
+
+                <label for="special-requests">Speciální požadavky:</label>
+                <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+
+                <button type="submit">Odeslat rezervaci</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Upozornění!</h5>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Omlouváme se, ale rezervace není v momentální době ještě v provozu.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="close-btn">Zavřít</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+        document.getElementById("reservation-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Zobrazíní modálního okna
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
+        });
+
+        // Zavření modálního okna po kliknutí na "x"
+        document.getElementsByClassName("close-btn")[0].onclick = function() {
+            var modal = document.getElementById("modal");
+            modal.style.display = "none";
+        };
+
+        // Zavření modálního okna při kliknutí mimo něj
+        window.onclick = function(event) {
+            var modal = document.getElementById("modal");
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
 </main>
 
 <footer>
-
+    <div class="Footer">
+        <span> Made with love by Eli in 2024 &#128153; </span>
+        <p> Copyright © CatParadise Hotel </p>
+    </div>
 </footer>
 </body>
 </html>
