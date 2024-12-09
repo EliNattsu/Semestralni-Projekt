@@ -49,6 +49,46 @@
             <button type="submit" id="login-button">Přihlásit se</button>
         </form>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Upozornění!</h5>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Omlouváme se, ale přihlášení není v momentální době ještě v provozu.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="close-btn">Zavřít</button>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript">
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Zobrazíní modálního okna
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
+        });
+
+        // Zavření modálního okna po kliknutí na "x"
+        document.getElementsByClassName("close-btn")[0].onclick = function() {
+            var modal = document.getElementById("modal");
+            modal.style.display = "none";
+        };
+
+        // Zavření modálního okna při kliknutí mimo něj
+        window.onclick = function(event) {
+            var modal = document.getElementById("modal");
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
     <div class="Footer">
         <span> Made with love by Eli in 2024 &#128153; </span>
         <p> Copyright © CatParadise Hotel </p>

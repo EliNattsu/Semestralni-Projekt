@@ -129,6 +129,60 @@ button {
 button:hover {
     background-color: #4cae4c;
 }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-title{
+    font-size: 1.5rem;
+    flex-grow: 1;
+    text-align: center;
+}
+.modal-body p{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.close {
+    color: #aaa;
+    font-size: 28px;
+}
+.close:hover,
+.close:focus {
+    cursor: pointer;
+    color: black;
+}
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.close-btn {
+    margin-left: 10px;
+    background-color: #0066ff;
+}
+.close-btn:hover {
+    background-color: #0015ff;
+}
 /* ____________________________________________________________________*/
 .login-button-container {
     text-align: center;
@@ -216,6 +270,12 @@ button:hover {
     }
     .login-btn{
         top: 11px;
+    }
+    .login-container{
+        left: 36%;
+    }
+    .Footer{
+        bottom: -58%;
     }
 }
 @media screen and (min-width: 460px) and (max-width: 700px){
