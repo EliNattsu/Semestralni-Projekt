@@ -69,8 +69,8 @@ header h2 {
     height: auto;
     display: block;
 }
-
 .CatCloud{
+    position: relative;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -89,7 +89,7 @@ header h2 {
 nav#navbar{
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 4rem;
     background-color: transparent;
     transition: background-color 0.3s;
@@ -97,7 +97,7 @@ nav#navbar{
 }
 nav#navbar ul.nav-links {
     list-style: none;
-    margin-top: 12px;
+    margin-top: 16px;
     margin-bottom: 0;
     padding-left: 0;
     text-align: center;
@@ -176,11 +176,10 @@ nav.navbar ul.nav-links li a:focus {
     transform: translateY(-2px);
 }
 /*__________________________________________________________________________*/
-#About.About{
+.About{
     background: linear-gradient(to bottom, #ffffff, #2f80fa);
-    min-height: 500px;
+    min-height: 700px;
     width: 100vw;
-    scroll-margin-top: 3rem;
 }
 #About h2{
     margin: 0;
@@ -191,17 +190,17 @@ nav.navbar ul.nav-links li a:focus {
     font-size: 4rem;
 }
 #About p{
-    margin: 0;
     text-align: center;
     color: black;
     font-family: Arial, serif;
     font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
-#Pricing.Pricing{
+.Pricing{
     background: linear-gradient(to bottom, #2f80fa, #000aff);
     min-height: 500px;
     width: 100vw;
-    scroll-margin-top: 3rem;
 }
 #Pricing h2{
     margin: 0;
@@ -211,7 +210,7 @@ nav.navbar ul.nav-links li a:focus {
     text-align: center;
     font-size: 4rem;
 }
-#Contact.Contact{
+.Contact{
     background: linear-gradient(to bottom, #000aff, #2f80fa, white);
     min-height: 500px;
     width: 100vw;
@@ -235,15 +234,19 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.Footer_b{
+.Footer {
     position: relative;
     text-align: center;
-    color: black;
     font-size: 1rem;
-    padding-top: 2.5rem;
+    padding-top: 1.6rem;
 }
-.Footer_s {
-    display: none;
+footer p {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
 /* ____________________________________________________________________*/
 @media screen and (max-width: 450px){
@@ -261,7 +264,6 @@ footer{
     .hotel-text {
         margin-top: -1rem;
         font-size: 3.5rem;
-
     }
     header h2 {
         margin-top: -1rem;
@@ -272,22 +274,13 @@ footer{
         width: 400px;
     }
     #About h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     #Contact h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     #Pricing h2 {
-        font-size: 3rem;
-    }
-    .Footer_b {
-        display: none;
-    }
-    .Footer_s {
-        left: 37%;
-        display: inline-block;
-        position: relative;
-        padding-top: 2rem;
+        font-size: 2rem;
     }
     .contact-link{
         font-size: 1rem;
@@ -311,7 +304,11 @@ footer{
     }
     .reservation-btn {
         margin-top: 18rem;
-        margin-left: -4.5rem;
+        margin-left: -4.4rem;
+        font-size: 1.5rem;
+    }
+    footer p {
+        font-size: 0.7rem;
     }
 }
 @media screen and (min-width: 1450px){
@@ -366,6 +363,37 @@ footer{
         width: 70px;
     }
 }
+@media screen and (min-width: 700px) and (max-width: 1450px){
+    .contact-link{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .about-link{
+        margin-right: 1.5rem;
+        margin-left: 0;
+    }
+    .pricing-link{
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
+    #About h2 {
+        font-size: 2.5rem;
+    }
+    #Contact h2 {
+        font-size: 2.5rem;
+    }
+    #Pricing h2 {
+        font-size: 2.5rem;
+    }
+    h1 {
+        font-size: 4rem;
+        padding-top: 15rem;
+    }
+    .hotel-text {
+        font-size: 4rem;
+    }
+}
+
 @keyframes float {
     0%, 100% {
         transform: translate(-50%, -50%) translateY(0);
