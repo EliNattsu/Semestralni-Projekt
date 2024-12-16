@@ -1,7 +1,7 @@
 :root {
     --color-A: #1B51F2;
     --color-B: #2E83F2;
-    --color-C: #80B2F2;
+    --color-C: rgb(128, 178, 242);
     --color-D: #CEDEF2;
     --color-E: #F28B30;
     --font-A: "Stoic-Regular", serif;
@@ -11,11 +11,16 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
 }
-body {
+*{
     margin: 0;
+    padding: 0;
 }
 /*__________________________________________________________________________*/
-
+main{
+    width: 100vw;
+    background: rgb(255,255,255);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(47,128,250,1) 20%, rgba(0,10,255,1) 50%, rgba(47,128,250,1) 80%, rgba(255,255,255,1) 100%);
+}
 header {
     margin: 0;
     background-image: url("../images/LoginBCK.png");
@@ -63,70 +68,118 @@ header h2 {
     top: 0;
     padding: 0;
     margin: 0;
+    z-index: 999;
 }
 .Logo img {
-    margin-left: 25px;
+    margin-left: 35px;
+    margin-top: -6px;
     width: 100px;
     height: auto;
     display: block;
 }
 /*__________________________________________________________________________*/
-nav#navbar{
+nav {
     position: fixed;
-    top: 0;
     width: 100vw;
-    height: 4rem;
+    top: 0;
+    right: 0;
+    left: 0;
     background-color: transparent;
     transition: background-color 0.3s;
-    z-index: 4;
+    z-index: 99;
 }
-nav#navbar ul.nav-links {
+nav ul {
+    width: 100vw;
     list-style: none;
-    margin-top: 16px;
-    margin-bottom: 0;
-    padding-left: 0;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
-nav#navbar ul.nav-links li {
-    display: inline-block;
+nav li {
+    height: 60px;
 }
-nav#navbar ul.nav-links li a {
-    font-family: var(--font-B), serif;
+nav a {
+    height: 100%;
+    padding: 0 50px;
     text-decoration: none;
-    opacity: 0.8;
+    display: flex;
+    align-items: center;
     color: white;
-}
-.about-link {
+    opacity: 0.8;
     font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
+    font-family: var(--font-B), serif;
 }
-.pricing-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-.contact-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-nav.navbar ul.nav-links li a:hover,
-nav.navbar ul.nav-links li a:focus {
+nav a:hover,
+nav a:focus {
     color: white;
     opacity: 1;
     text-decoration: underline;
 }
-/*__________________________________________________________________________*/
-.login-button-container {
-    text-align: center;
+/* Это дерьмо, блядь, не работает.*/
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(128, 178, 242, 0.42);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 9999;
 }
-.login-btn {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    padding: 10px 25px;
+.sidebar li{
+    width: 100%;
+    z-index: 9999;
+}
+.sidebar a{
+    width: 100%;
+    z-index: 9999;
+}
+.menu-button{
+    display: none;
+}
+svg{
+    width: 150%;
+    height: 100%;
+    fill: white;
+    stroke: white;
+}
+/*__________________________________________________________________________*/
+#login-button-container {
+    display: inline-block;
+}
+nav #login-button-container .login-btn {
     background-color: var(--color-D);
+    height: 40px;
+    margin-top: 8px;
+    margin-right: 20px;
+    font-family: "Times New Roman", serif !important;
+    border: 2px solid white;
+    opacity: 0.9;
+    color: var(--color-A);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 0 30px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+nav #login-button-container .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
+    transform: translateY(-2px);
+}
+
+#login-button-container-sb {
+    display: inline-block;
+}
+nav #login-button-container-sb .login-btn {
+    background-color: var(--color-D);
+    font-family: "Times New Roman", serif !important;
     border: 2px solid white;
     opacity: 0.9;
     color: var(--color-A);
@@ -135,8 +188,9 @@ nav.navbar ul.nav-links li a:focus {
     font-size: 16px;
     transition: background-color 0.3s, transform 0.3s;
 }
-.login-btn:hover {
-    background-color: var( --color-C);
+nav #login-button-container-sb .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
     transform: translateY(-2px);
 }
 .Reservation-button-container {
@@ -160,40 +214,101 @@ nav.navbar ul.nav-links li a:focus {
     background-color: var(--color-A);
     transform: translateY(-2px);
 }
+/*__________________________________________________________________________*/
 .Reservation {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
+    background-color: rgba(154, 154, 154, 0.07);
+    padding: 40px;
+    border-radius: 20px;
+    border: white 1px solid;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 .Reservation h2 {
     text-align: center;
-    color: #333;
+    color: var(--color-B);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
-.Reservation label {
+.form-group {
+    width: 570px;
+    margin-bottom: 20px;
+}
+.form-group label[for="cat-name"],
+.form-group label[for="arrival"],
+.form-group label[for="departure"],
+.form-group label[for="cats"] {
+    color: white;
+}
+.form-group label {
     display: block;
-    margin-top: 10px;
+    color: black;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
-.Reservation input,
-.Reservation textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px 15px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #363636;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.form-group.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.form-group.checkbox input {
+    width: auto;
+}
+.form-group.checkbox label {
+    margin-bottom: 0;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgb(255, 255, 255);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(164, 164, 164, 0.7);
 }
 .Reservation button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #007BFF;
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px 30px;
+    background: rgb(128, 178, 242);
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .Reservation button:hover {
-    background-color: #0056b3;
+    background: rgba(0, 21, 255, 0.62);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+.Reservation input[type="date"] {
+    color-scheme: dark;
+}
+.form-note {
+    color: rgb(63, 90, 255);
+    font-size: 0.9rem;
+    margin-top: 20px;
+    text-align: left;
+    font-style: italic;
+    padding-left: 5px;
+}
+/*__________________________________________________________________________*/
 .modal {
     display: none;
     position: fixed;
@@ -281,11 +396,7 @@ footer p {
 }
 /*__________________________________________________________________________*/
 @media screen and (max-width: 450px) {
-    header {
-        background-image: url("../images/LoginBCK-Small.png");
-    }
     .Logo img {
-        width: 70px;
         margin-left: 14px;
     }
     h1 {
@@ -300,21 +411,6 @@ footer p {
         margin-top: -1rem;
         font-size: 1.3rem;
     }
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.6rem;
-        margin-left: 0.5rem;
-    }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-    }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-    }
     .login-btn {
         right: 10px;
         padding: 5px 15px;
@@ -328,72 +424,36 @@ footer p {
     footer p {
         font-size: 0.7rem;
     }
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+    #login-button-container{
+        display: none;
+    }
+    nav a{
+        padding: 0 10px;
+        font-size: 1rem;
+    }
+    .Reservation {
+        width: 300px;
+    }
+    .form-group{
+        width: 269px;
+    }
 }
 @media screen and (min-width: 1450px){
     h1{
         padding-top: 15rem;
         font-size: 7rem;
     }
-    .Logo img {
-        width: 100px;
-    }
     .hotel-text {
         font-size: 5.5rem;
     }
-    .contact-link{
-        margin-right: 13rem;
-        margin-left: 10rem;
-    }
-    .about-link{
-        margin-right: 12rem;
-        margin-left: 10rem;
-    }
-    .pricing-link{
-        margin-right: 9rem;
-        margin-left: 7rem;
-    }
-    .login-btn{
-        top: 11px;
-    }
-}
-@media screen and (min-width: 460px) and (max-width: 700px){
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1rem;
-    }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    .login-btn {
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 12px;
-    }
-    .Logo img {
-        width: 70px;
-    }
 }
 @media screen and (min-width: 700px) and (max-width: 1000px){
-    .contact-link{
-        margin-right: 1rem;
-        margin-left: 1rem;
-    }
-    .about-link{
-        margin-right: 1.5rem;
-        margin-left: 0;
-    }
-    .pricing-link{
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
     h1 {
         font-size: 4rem;
         padding-top: 15rem;
@@ -401,61 +461,35 @@ footer p {
     .hotel-text {
         font-size: 4rem;
     }
-}
-@media screen and (max-width: 330px){
-    .contact-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
-    }
-    .about-link{
-        font-size: 1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.5rem;
-    }
-    .pricing-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .Logo img{
-        width: 60px;
-        margin-left: 8px;
-    }
-    .login-btn {
-        top: 14px;
-        right: 5px;
-        padding: 2px 7px;
-        font-size: 11px;
-    }
-    nav#navbar{
-        height: 3rem;
+    nav a{
+        padding: 0 40px;
+        font-size: 1.5rem;
     }
 }
-@media screen and (min-width:350px) and (max-width: 400px){
-    .contact-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
+@media (max-width: 768px) {
+    .Reservation h2 {
+        font-size: 2rem;
     }
-    .about-link{
-        font-size: 1.1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.9rem;
+}
+@media screen and (min-width:310px) and (max-width: 400px){
+    .Pricing {
+        height: 1250px;
     }
-    .pricing-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0;
+    .About{
+        height: 650px;
+    }
+    .sidebar{
+        width: 70%;
     }
     .Logo img{
-        width: 70px;
-        margin-left: 8px;
+        width: 90px;
+        margin-top: 4px;
+        margin-left: 6px;
     }
-    .login-btn {
-        top: 12px;
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 11px;
+    .Reservation {
+        width: 200px;
+    }
+    .form-group{
+        width: 180px;
     }
 }
