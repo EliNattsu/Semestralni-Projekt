@@ -279,9 +279,6 @@ nav #login-button-container-sb .login-btn:hover {
 }
 /* ____________________________________________________________________*/
 @media screen and (max-width: 450px) {
-    header {
-        background-image: url("../images/LoginBCK-Small.png");
-    }
     .Logo img {
         width: 100px;
         margin-left: 14px;
