@@ -197,6 +197,7 @@ nav #login-button-container-sb .login-btn {
     border: 2px solid white;
     opacity: 0.9;
     width: 90%;
+    height: 50px;
     color: var(--color-A);
     text-decoration: none;
     border-radius: 20px;
