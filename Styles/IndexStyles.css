@@ -15,6 +15,7 @@ html {
 *{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 body{
     margin: 0;
@@ -251,7 +252,7 @@ nav #login-button-container-sb .login-btn:hover {
 }
 .kocka img{
     padding-right: 20px;
-    width: 400px;
+    width: 350px;
     height: auto;
 }
 #About h2{
@@ -532,5 +533,10 @@ footer p {
     }
     50% {
         transform: translate(-50%, -50%) translateY(-20px);
+    }
+}
+@media screen and (min-width: 1000px) and (max-width: 1440px){
+    .map-container{
+        width: 900px;
     }
 }
