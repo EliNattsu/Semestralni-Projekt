@@ -7,8 +7,14 @@
     --font-A: "Stoic-Regular", serif;
     --font-B: "Sunborn-SansOne";
 }
-body {
+*{
     margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+
 }
 /*__________________________________________________________________________*/
 main {
@@ -27,60 +33,84 @@ main {
     top: 0;
     padding: 0;
     margin: 0;
+    z-index: 999;
 }
 .Logo img {
-    margin-top: -2px;
-    margin-left: 25px;
+    margin-left: 35px;
+    margin-top: -6px;
     width: 100px;
     height: auto;
     display: block;
 }
 /* ____________________________________________________________________*/
-nav#navbar{
+nav {
     position: fixed;
-    top: 0;
     width: 100vw;
-    height: 4rem;
+    top: 0;
+    right: 0;
+    left: 0;
     background-color: transparent;
     transition: background-color 0.3s;
-    z-index: 4;
+    z-index: 7;
 }
-nav#navbar ul.nav-links {
+nav ul {
+    width: 100vw;
     list-style: none;
-    margin-top: 16px;
-    margin-bottom: 0;
-    padding-left: 0;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
-nav#navbar ul.nav-links li {
-    display: inline-block;
+nav li {
+    height: 60px;
 }
-nav#navbar ul.nav-links li a {
-    font-family: var(--font-B), serif;
+nav a {
+    height: 100%;
+    padding: 0 50px;
     text-decoration: none;
-    opacity: 0.8;
+    display: flex;
+    align-items: center;
     color: white;
-}
-.about-link {
+    opacity: 0.8;
     font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
+    font-family: var(--font-B), serif;
 }
-.pricing-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-.contact-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-nav.navbar ul.nav-links li a:hover,
-nav.navbar ul.nav-links li a:focus {
+nav a:hover,
+nav a:focus {
     color: white;
     opacity: 1;
     text-decoration: underline;
+}
+/* Это дерьмо, блядь, не работает.*/
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(128, 178, 242, 0.42);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 9999;
+}
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+.menu-button{
+    display: none;
+}
+svg{
+    width: 150%;
+    height: 100%;
+    fill: white;
+    stroke: white;
 }
 /* ____________________________________________________________________*/
 .login-container {
@@ -184,41 +214,68 @@ button:hover {
     background-color: #0015ff;
 }
 /* ____________________________________________________________________*/
-.login-button-container {
-    text-align: center;
+#login-button-container {
+    display: inline-block;
 }
-.login-btn {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    padding: 10px 25px;
+nav #login-button-container .login-btn {
     background-color: var(--color-D);
+    height: 40px;
+    margin-top: 8px;
+    margin-right: 20px;
+    font-family: "Times New Roman", serif !important;
     border: 2px solid white;
     opacity: 0.9;
     color: var(--color-A);
     text-decoration: none;
     border-radius: 20px;
     font-size: 16px;
+    padding: 0 30px;
     transition: background-color 0.3s, transform 0.3s;
 }
-.login-btn:hover {
-    background-color: var( --color-C);
+nav #login-button-container .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
+    transform: translateY(-2px);
+}
+
+#login-button-container-sb {
+    display: inline-block;
+}
+nav #login-button-container-sb .login-btn {
+    background-color: var(--color-D);
+    font-family: "Times New Roman", serif !important;
+    border: 2px solid white;
+    opacity: 0.9;
+    width: 90%;
+    color: var(--color-A);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+nav #login-button-container-sb .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
     transform: translateY(-2px);
 }
 /* ____________________________________________________________________*/
 .Footer {
     position: relative;
-    text-align: center;
+    text-align: right;
+    bottom: -56.5%;
     font-size: 1rem;
-    bottom: -53%;
+    opacity: 0.5;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 .Footer p {
     position: relative;
-    margin: 0;
+    margin-right: 10px;
+    margin-top: 0;
     padding: 0;
-    text-align: center;
+    text-align: right;
     font-size: 0.8rem;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 /* ____________________________________________________________________*/
 @media screen and (max-width: 450px) {
@@ -226,7 +283,7 @@ button:hover {
         background-image: url("../images/LoginBCK-Small.png");
     }
     .Logo img {
-        width: 70px;
+        width: 100px;
         margin-left: 14px;
     }
     .login-container {
@@ -234,43 +291,24 @@ button:hover {
         padding: 20px;
         left: 8%;
     }
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.6rem;
-        margin-left: 0.5rem;
+    .hideOnMobile{
+        display: none;
     }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
+    .menu-button{
+        display: block;
     }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
+    #login-button-container{
+        display: none;
     }
-    .login-btn {
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 12px;
+    nav a{
+        padding: 0 10px;
+        font-size: 1rem;
+    }
+    .Footer {
+        bottom: -56%;
     }
 }
 @media screen and (min-width: 1450px){
-    .contact-link{
-        margin-right: 13rem;
-        margin-left: 10rem;
-    }
-    .about-link{
-        margin-right: 12rem;
-        margin-left: 10rem;
-    }
-    .pricing-link{
-        margin-right: 9rem;
-        margin-left: 7rem;
-    }
-    .login-btn{
-        top: 11px;
-    }
     .login-container{
         left: 36%;
     }
@@ -279,43 +317,11 @@ button:hover {
     }
 }
 @media screen and (min-width: 460px) and (max-width: 700px){
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1rem;
-    }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    .login-btn {
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 12px;
-    }
     .Logo img {
         width: 70px;
     }
 }
 @media screen and (min-width: 710px) and (max-width: 1100px) {
-    .contact-link {
-        margin-right: 1rem;
-        margin-left: 1rem;
-    }
-    .about-link {
-        margin-right: 1.5rem;
-        margin-left: 0;
-    }
-    .pricing-link {
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
     .login-container{
         left: 26.5%;
     }
@@ -326,54 +332,14 @@ button:hover {
     }
 }
 @media screen and (max-width: 330px){
-    .contact-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
-    }
-    .about-link{
-        font-size: 1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.5rem;
-    }
-    .pricing-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .Logo img{
-        width: 60px;
-        margin-left: 8px;
-    }
-    .login-btn {
-        top: 14px;
-        right: 5px;
-        padding: 2px 7px;
-        font-size: 11px;
-    }
     .login-container{
         width: 250px;
         left: 2%;
     }
 }
 @media screen and (min-width:350px) and (max-width: 400px){
-    .contact-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
-    }
-    .about-link{
-        font-size: 1.1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.9rem;
-    }
-    .pricing-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0;
-    }
     .Logo img{
-        width: 70px;
+        width: 100px;
         margin-left: 8px;
     }
     .login-btn {
@@ -384,5 +350,27 @@ button:hover {
     }
     .login-container{
         left: 3%;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 1000px){
+    nav a{
+        padding: 0 40px;
+        font-size: 1.5rem;
+    }
+    .Footer{
+        bottom: -57%;
+    }
+}
+@media screen and (min-width:310px) and (max-width: 400px){
+    .Logo img{
+        width: 90px;
+        margin-top: 4px;
+        margin-left: 6px;
+    }
+    .sidebar{
+        width: 70%;
+    }
+    .Footer{
+        bottom: -57%;
     }
 }
