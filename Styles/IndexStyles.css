@@ -8,18 +8,25 @@
     --font-B: "Sunborn-SansOne";
 }
 html {
+    width: 100vw;
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 3.8rem;
 }
-body {
+*{
     margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+
 }
 /*__________________________________________________________________________*/
 header {
     margin: 0;
+    padding: 0;
     background-image: url("../images/BCKG.png");
     background-repeat: no-repeat;
-    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -62,9 +69,11 @@ header h2 {
     top: 0;
     padding: 0;
     margin: 0;
+    z-index: 8;
 }
 .Logo img {
-    margin-left: 25px;
+    margin-left: 35px;
+    margin-top: -6px;
     width: 100px;
     height: auto;
     display: block;
@@ -86,75 +95,122 @@ header h2 {
     animation: float 5s infinite ease-in-out;
 }
 /*__________________________________________________________________________*/
-nav#navbar{
+nav {
     position: fixed;
-    top: 0;
     width: 100vw;
-    height: 4rem;
+    top: 0;
+    right: 0;
+    left: 0;
     background-color: transparent;
     transition: background-color 0.3s;
-    z-index: 4;
+    z-index: 7;
 }
-nav#navbar ul.nav-links {
+nav ul {
+    width: 100vw;
     list-style: none;
-    margin-top: 16px;
-    margin-bottom: 0;
-    padding-left: 0;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
-nav#navbar ul.nav-links li {
-    display: inline-block;
+nav li {
+    height: 60px;
 }
-nav#navbar ul.nav-links li a {
-    font-family: var(--font-B), serif;
+nav a {
+    height: 100%;
+    padding: 0 50px;
     text-decoration: none;
-    opacity: 0.8;
+    display: flex;
+    align-items: center;
     color: white;
-}
-.about-link {
+    opacity: 0.8;
     font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
+    font-family: var(--font-B), serif;
 }
-.pricing-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-.contact-link{
-    font-size: 2rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
-}
-nav.navbar ul.nav-links li a:hover,
-nav.navbar ul.nav-links li a:focus {
+nav a:hover,
+nav a:focus {
     color: white;
     opacity: 1;
     text-decoration: underline;
 }
 /* Это дерьмо, блядь, не работает.*/
-/*__________________________________________________________________________*/
-.login-button-container {
-    text-align: center;
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(128, 178, 242, 0.42);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 9999;
 }
-.login-btn {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    padding: 10px 25px;
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+.menu-button{
+    display: none;
+}
+svg{
+    width: 150%;
+    height: 100%;
+    fill: white;
+    stroke: white;
+}
+
+/*__________________________________________________________________________*/
+#login-button-container {
+    display: inline-block;
+}
+nav #login-button-container .login-btn {
     background-color: var(--color-D);
+    height: 40px;
+    margin-top: 8px;
+    margin-right: 20px;
+    font-family: "Times New Roman", serif !important;
     border: 2px solid white;
     opacity: 0.9;
     color: var(--color-A);
     text-decoration: none;
     border-radius: 20px;
     font-size: 16px;
+    padding: 0 30px;
     transition: background-color 0.3s, transform 0.3s;
 }
-.login-btn:hover {
-    background-color: var( --color-C);
+nav #login-button-container .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
     transform: translateY(-2px);
 }
+
+#login-button-container-sb {
+    display: inline-block;
+}
+nav #login-button-container-sb .login-btn {
+    background-color: var(--color-D);
+    font-family: "Times New Roman", serif !important;
+    border: 2px solid white;
+    opacity: 0.9;
+    width: 90%;
+    color: var(--color-A);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+nav #login-button-container-sb .login-btn:hover {
+    background-color: var( --color-A);
+    color: white;
+    transform: translateY(-2px);
+}
+
 .Reservation-button-container {
     text-align: center;
 }
@@ -178,12 +234,33 @@ nav.navbar ul.nav-links li a:focus {
 }
 /*__________________________________________________________________________*/
 .About{
-    background: linear-gradient(to bottom, #ffffff, #2f80fa);
-    height: 500px;
+    display: flex;
+    background: white;
     width: 100vw;
 }
+.about-content{
+    display: flex;
+    align-items: flex-start;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+.text-content{
+    flex: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.kocka{
+    display: flex;
+    justify-content: center;
+}
+.kocka img{
+    padding-right: 20px;
+    width: 400px;
+    height: auto;
+}
 #About h2{
-    margin: 0;
+    margin-top: 2rem;
+    margin-bottom: 0;
     color: var(--color-A);
     font-family: var(--font-B), serif;
     font-weight: 300;
@@ -199,64 +276,89 @@ nav.navbar ul.nav-links li a:focus {
     margin-bottom: 15px;
 }
 /*__________________________________________________________________________*/
-.Pricing{
-    background: linear-gradient(to bottom, #2f80fa, #000aff);
-    height: 900px;
+.Pricing {
+    background: linear-gradient(to bottom, white, #2f80fa, #000aff);
     width: 100vw;
-}
-#Pricing h2{
-    margin: 0;
+    height: 900px;
     color: white;
+}
+#Pricing h2 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    color: var(--color-A);
     font-family: var(--font-B), serif;
     font-weight: 300;
     text-align: center;
     font-size: 4rem;
 }
-#Pricing h3{
+#Pricing h3 {
+    font-family: var(--font-B), serif;
+    color: white;
+    font-weight: 200;
+    font-size: 1.5rem;
     text-align: center;
-    margin-top: 2rem ;
+    margin-top: 1rem;
+}
+#Pricing h3.ubytovani{
+    color: var(--color-B);
+}
+.cenik, .dalsi-sluzby {
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    border-left: 1px white solid;
+    border-right: 1px white solid;
+    border-bottom: 1px white solid;
+}
+.cenik th {
+    background-color: #0066ff;
     color: white;
 }
-#Pricing h4{
+.dalsi-sluzby th {
+    background-color: var(--color-C);
     color: white;
 }
-#Pricing ul li{
-    color: white;
-    font-size: 1rem;
-    font-family: Arial, serif;
-}
-table.cenik, table.dalsi-sluzby {
-    width: 100vw;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+.cenik th, .dalsi-sluzby th,
+.cenik td, .dalsi-sluzby td {
+    padding: 15px;
     text-align: center;
 }
-th {
-    background-color: #0015ff;
-    color: white;
+.cenik tr:nth-child(even), .dalsi-sluzby tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: #000aff;
 }
-tr:nth-child(even) {
-    background-color: #dedede;
-}
-tr:nth-child(odd){
-    background-color: white;
-}
-tr:hover {
+.cenik tr:hover, .dalsi-sluzby tr:hover {
     background-color: #ddd;
+    color: #000aff;
 }
 /*__________________________________________________________________________*/
 .Contact{
     background: linear-gradient(to bottom, #000aff, #2f80fa, white);
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.map-container{
+    width: 100vw;
+    max-width: 950px;
+    height: 400px;
+    position: relative;
+}
+.map-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 #Contact h2{
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
     color: white;
     font-family: var(--font-B), serif;
     font-weight: 300;
@@ -264,6 +366,8 @@ tr:hover {
     font-size: 4rem;
 }
 #Contact h3{
+    font-family: var(--font-B), serif;
+    font-weight: 100;
     font-size: 1.5rem;
     margin-top: 20px;
     color: white;
@@ -272,7 +376,7 @@ tr:hover {
 .Contact p {
     font-size: 1.3rem;
     text-align: center;
-    color: #dedede;
+    color: #e8e8e8;
 }
 /* _________________________________________________________________________*/
 footer{
@@ -305,7 +409,7 @@ footer p {
         background-image: url("../images/BCKG-Small.png");
     }
     .Logo img {
-        width: 70px;
+        width: 100px;
         margin-left: 14px;
     }
     h1 {
@@ -333,26 +437,6 @@ footer p {
     #Pricing h2 {
         font-size: 2rem;
     }
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.6rem;
-        margin-left: 0.5rem;
-    }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-    }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-    }
-    .login-btn {
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 12px;
-    }
     .reservation-btn {
         margin-top: 18rem;
         margin-left: -4.4rem;
@@ -362,10 +446,30 @@ footer p {
         font-size: 0.7rem;
     }
     .Pricing {
-        height: 1000px;
+        height: 1200px;
     }
     .About{
         height: 600px;
+    }
+    .map-container{
+        height: 300px;
+        width: 100%;
+    }
+    .kocka img{
+        display: none;
+    }
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+    #login-button-container{
+        display: none;
+    }
+    nav a{
+        padding: 0 10px;
+        font-size: 1rem;
     }
 }
 @media screen and (min-width: 1450px){
@@ -382,38 +486,8 @@ footer p {
     .hotel-text {
         font-size: 5.5rem;
     }
-    .contact-link{
-        margin-right: 13rem;
-        margin-left: 10rem;
-    }
-    .about-link{
-        margin-right: 12rem;
-        margin-left: 10rem;
-    }
-    .pricing-link{
-        margin-right: 9rem;
-        margin-left: 7rem;
-    }
-    .login-btn{
-        top: 11px;
-    }
 }
 @media screen and (min-width: 460px) and (max-width: 700px){
-    .contact-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
-    .about-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1rem;
-    }
-    .pricing-link{
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
     .login-btn {
         right: 10px;
         padding: 5px 15px;
@@ -422,20 +496,11 @@ footer p {
     .Logo img {
         width: 70px;
     }
+    .kocka img{
+        display: none;
+    }
 }
 @media screen and (min-width: 700px) and (max-width: 1000px){
-    .contact-link{
-        margin-right: 1rem;
-        margin-left: 1rem;
-    }
-    .about-link{
-        margin-right: 1.5rem;
-        margin-left: 0;
-    }
-    .pricing-link{
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-    }
     #About h2 {
         font-size: 2.5rem;
     }
@@ -452,75 +517,25 @@ footer p {
     .hotel-text {
         font-size: 4rem;
     }
+    nav a{
+        padding: 0 40px;
+        font-size: 1.5rem;
+    }
 }
-
-@media screen and (max-width: 330px){
-    .contact-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
-    }
-    .about-link{
-        font-size: 1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.5rem;
-    }
-    .pricing-link{
-        font-size: 1rem;
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .Logo img{
-        width: 60px;
-        margin-left: 8px;
-    }
-    .login-btn {
-        top: 14px;
-        right: 5px;
-        padding: 2px 7px;
-        font-size: 11px;
-    }
-    nav#navbar{
-        height: 3rem;
-    }
+@media screen and (min-width:310px) and (max-width: 400px){
     .Pricing {
         height: 1250px;
     }
     .About{
-        height: 680px;
+        height: 650px;
     }
-}
-@media screen and (min-width:350px) and (max-width: 400px){
-    .contact-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0.2rem;
-    }
-    .about-link{
-        font-size: 1.1rem;
-        margin-right: 0.2rem;
-        margin-left: -0.9rem;
-    }
-    .pricing-link{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: 0;
+    .sidebar{
+        width: 70%;
     }
     .Logo img{
-        width: 70px;
-        margin-left: 8px;
-    }
-    .login-btn {
-        top: 12px;
-        right: 10px;
-        padding: 5px 15px;
-        font-size: 11px;
-    }
-    .Pricing {
-        height: 1100px;
-    }
-    .About{
-        height: 650px;
+        width: 90px;
+        margin-top: 4px;
+        margin-left: 6px;
     }
 }
 @keyframes float {

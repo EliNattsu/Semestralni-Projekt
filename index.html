@@ -19,37 +19,69 @@
 </head>
 
 <body>
+
 <header>
     <h1> CatParadise <br>
         <span class="hotel-text">Hotel</span>
     </h1>
     <h2> Užijte si dovolenou s kočkou</h2>
-    <nav id="navbar">
-        <div class="container">
-            <a href="index.html" class="Logo">
-                <img src="images/Logo.png" alt="Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#About" class="about-link">O nás</a></li>
-                <li><a href="#Pricing" class="pricing-link">Ceník</a></li>
-                <li><a href="#Contact" class="contact-link">Kontakt</a></li>
-            </ul>
-        </div>
 
-        <div class="login-button-container">
-            <a href="LogIn.html" class="login-btn"> Přihlásit se </a>
-        </div>
+    <div class="container">
+        <a href="index.html" class="Logo">
+            <img src="images/Logo.png" alt="Logo">
+        </a>
+    </div>
+
+    <nav id="navbar">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+            <li><a href="#About">O nás</a></li>
+            <li><a href="#Pricing">Ceník</a></li>
+            <li><a href="#Contact">Kontakt</a></li>
+            <li id="login-button-container-sb"><a href="LogIn.html" class="login-btn"> Přihlásit se </a> </li>
+        </ul>
+        <ul>
+            <li class="hideOnMobile"><a href="#About" class="about-link">O nás</a></li>
+            <li class="hideOnMobile"><a href="#Pricing" class="pricing-link">Ceník</a></li>
+            <li class="hideOnMobile"><a href="#Contact" class="contact-link">Kontakt</a></li>
+            <li class="hideOnMobile" id="login-button-container"><a href="LogIn.html" class="login-btn"> Přihlásit se </a> </li>
+            <li class="menu-button" onclick=showSidebar()><a><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+        </ul>
     </nav>
+
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+
+        function setupMenuListeners() {
+            const sidebar = document.querySelector('.sidebar');
+            const menuItems = sidebar.querySelectorAll('a');
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    hideSidebar();
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', setupMenuListeners);
+    </script>
 
     <script type="application/javascript">
         window.onscroll = function() {
             var navbar = document.getElementById("navbar");
 
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop < 50) {
-                navbar.style.backgroundColor = "transparent";
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                navbar.style.backgroundColor = "rgba(46, 131, 242, 0.7)";
                 navbar.style.color = "white";
             } else {
-                navbar.style.backgroundColor = "#2E83F2";
+                navbar.style.backgroundColor = "transparent";
                 navbar.style.color = "white";
             }
         };
@@ -67,27 +99,34 @@
 <main>
     <section id="About" class="About">
         <div class="container">
-            <h2> O nás</h2>
-            <p>
-                CatParadise Hotel je jedinečný hotel určený pro kočky a jejich páníčky,
-                který se zaměřuje na poskytování pohodlného a bezpečného prostředí pro vaše miláčky.
-            </p>
-            <p>
-                Naším cílem je zajistit, aby se každá kočka cítila jako doma,
-                zatímco její majitelé mohou mít klid na duši.
-            </p>
-            <p>
-                Nabízíme širokou škálu služeb, které zahrnují komfortní ubytování,
-                osobní péči a zábavné aktivity, které podporují přirozené instinkty koček.
-                Naše zařízení splňuje vysoké standardy hygieny a bezpečnosti,
-                což zaručuje zdraví a pohodu všech našich hostů.
-            </p>
-            <p>
-                V CatParadise Hotel chápeme, jak důležité je mít důvěru ve službu,
-                kterou svému mazlíčkovi svěřujete. Proto se snažíme o maximální transparentnost
-                a otevřenost vůči našim klientům, abychom zajistili,
-                že vaše kočka bude v těch nejlepších rukou.
-            </p>
+            <h2>O nás</h2>
+            <div class="about-content">
+                <div class="text-content">
+                    <p>
+                        CatParadise Hotel je jedinečný hotel určený pro kočky a jejich páníčky,
+                        který se zaměřuje na poskytování pohodlného a bezpečného prostředí pro vaše miláčky.
+                    </p>
+                    <p>
+                        Naším cílem je zajistit, aby se každá kočka cítila jako doma,
+                        zatímco její majitelé mohou mít klid na duši.
+                    </p>
+                    <p>
+                        Nabízíme širokou škálu služeb, které zahrnují komfortní ubytování,
+                        osobní péči a zábavné aktivity, které podporují přirozené instinkty koček.
+                        Naše zařízení splňuje vysoké standardy hygieny a bezpečnosti,
+                        což zaručuje zdraví a pohodu všech našich hostů.
+                    </p>
+                    <p>
+                        V CatParadise Hotel chápeme, jak důležité je mít důvěru ve službu,
+                        kterou svému mazlíčkovi svěřujete. Proto se snažíme o maximální transparentnost
+                        a otevřenost vůči našim klientům, abychom zajistili,
+                        že vaše kočka bude v těch nejlepších rukou.
+                    </p>
+                </div>
+                <div class="kocka">
+                    <img src="images/kocka.png" alt="kocka">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -95,7 +134,7 @@
         <div class="container">
             <h2>Ceník</h2>
 
-            <h3>Ubytování</h3>
+            <h3 class="ubytovani">Ubytování</h3>
             <table class="cenik">
                 <thead>
                 <tr>
@@ -148,12 +187,12 @@
                 </tbody>
             </table>
 
-            <h3>Další Služby</h3>
+            <h3>Extra nabídky</h3>
 
             <table class="dalsi-sluzby">
                 <thead>
                 <tr>
-                    <th>Služba</th>
+                    <th>Extra nabídka</th>
                     <th>Cena</th>
                 </tr>
                 </thead>
@@ -172,14 +211,6 @@
                 </tr>
                 </tbody>
             </table>
-
-            <h4>Poznámky:</h4>
-
-            <ul style="margin-left: 20px;">
-                <li>Ceny platné od 1. dubna 2024.</li>
-                <li>Ceník se může lišit v závislosti na sezóně a dalších faktorech.</li>
-                <li>Pro více informací o službách a podmínkách doporučujeme kontaktovat přímo hotel.</li>
-            </ul>
         </div>
     </section>
 
@@ -189,8 +220,8 @@
             <h3>Adresa</h3>
             <p>
                 CatParadise Hotel<br>
-                U Koček 1234/56,<br>
-                Praha 110 00,<br>
+                Jiřího z Poděbrad 2589,<br>
+                530 02 Pardubice I - Zelené Předměstí<br>
                 Česká republika
             </p>
 
@@ -199,11 +230,12 @@
                 <strong>Telefonní číslo:</strong> +420 123 456 789
             </p>
 
-            <h3>Naše Poloha</h3>
-            <div style="width: 100%; height: 400px;">
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.1234567890123!2d14.421123315674045!3d50.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94a123456789%3A0xabcdef1234567890!2sU%20Koček%201234%2F56%2C%20Praha%20110%2000%2C%20%C4%8Cesk%C3%A1%20republika!5e0!3m2!1sen!2scz!4v1610000000000"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <h3>Kde nás najít</h3>
+            <div class="map-container">
+                <iframe style="border:none"
+                        src="https://frame.mapy.cz/s/pasoletavu"
+                        allowfullscreen>
+                </iframe>
             </div>
         </div>
     </section>
