@@ -305,9 +305,7 @@ nav #login-button-container-sb .login-btn:hover {
     margin: 20px auto;
     border-radius: 5px;
     overflow: hidden;
-    border-left: 1px white solid;
-    border-right: 1px white solid;
-    border-bottom: 1px white solid;
+    border: 1px white solid;
 }
 .cenik th {
     background-color: #0066ff;
